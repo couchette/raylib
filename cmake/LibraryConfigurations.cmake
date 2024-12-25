@@ -97,6 +97,9 @@ elseif ("${PLATFORM}" MATCHES "SDL")
     set(PLATFORM_CPP "PLATFORM_DESKTOP_SDL")
     set(LIBS_PRIVATE SDL2::SDL2)
 
+elseif ("${PLATFORM}" MATCHES "Embedded") 
+    set(LIBS_PRIVATE ${CMAKE_SOURCE_DIR}/tinygl/lib/libtinygl.a)
+    set(OPENGL_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/tinygl/include)
 endif ()
 
 if (NOT ${OPENGL_VERSION} MATCHES "OFF")
